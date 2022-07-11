@@ -1,0 +1,46 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+   <context:annotation-config />
+<context:component-scan base-package="Constructor_concepts" />
+    
+   
+   <bean id="e" class="Constructor_concepts.Order">
+   <constructor-arg type="java.lang.String" value="GaneshRam" index="0">
+   </constructor-arg>
+   
+   <constructor-arg type="java.lang.String" index="2">
+   <value>India</value></constructor-arg>
+   
+   <constructor-arg type="int" index="1">
+   <value>22</value></constructor-arg>
+   </bean>
+   <bean id="orderFac" class="Constructor_concepts.OrderFactory" factory-method="getOrder">
+   <constructor-arg type="java.lang.String" value="GaneshRam" index="0">
+   </constructor-arg>
+   
+   <constructor-arg type="java.lang.String" index="1">
+   <value>India</value></constructor-arg>
+   
+   <constructor-arg type="int" index="2">
+   <value>22</value></constructor-arg></bean>
+   
+   
+   
+   <bean id="InstanceorderFac" class="Constructor_concepts.OrderFactory" factory-method="getInstanceOrder"
+   factory-bean="orderFac">
+   <constructor-arg type="java.lang.String" value="GaneshRam" index="0">
+   </constructor-arg>
+   
+   <constructor-arg type="java.lang.String" index="1">
+   <value>India</value></constructor-arg>
+   
+   <constructor-arg type="int" index="2">
+   <value>22</value></constructor-arg></bean>
+   
+   </beans>
